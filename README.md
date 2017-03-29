@@ -1,8 +1,8 @@
 # Unity-ios-touch-input-stuttering
 Bug report for frame jumps and frame freezes on ios with simple touch input
 
-[Introudction Video](https://youtu.be/2lu996QHSpE)
-[Recordings 240 FPS](https://youtu.be/O4JOB5Gsa6I)
+* [Introduction Video](https://youtu.be/2lu996QHSpE)
+* [Recordings 240 FPS](https://youtu.be/O4JOB5Gsa6I)
 
 ## Project information
 
