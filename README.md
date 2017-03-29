@@ -17,7 +17,7 @@ Bug report for frame jumps and frame freezes on ios with simple touch input
 
 ### Versions
 * Tested with Unity 5.5.1p1 and 5.6.0f2
-* Tested with XCode 8.2.1 and 8.3 beta 2
+* Tested with XCode 8.2.1, 8.3 beta 2 and 8.3 (8E162)
 
 ### Tested Devices
 * iPad Pro
