@@ -23,7 +23,9 @@ Noticable frame jumps and frame freezes on ios with simple touch input
 * il2CPP
 * Gamma color space
 
-### Results
+![Screenshot v0.2](https://i.imgur.com/f50pAdR.png)
+
+### Results (V 0.1)
 
 |    Model       | OpenGLES2 | OpenGLES3 | Metal |
 |----------------|-----------|-----------|-------|
@@ -53,6 +55,6 @@ Noticable frame jumps and frame freezes on ios with simple touch input
 * Build & Run Project
 * Install the app
 * Detach the device from the computer
-* Hit the **Do nothing** key until you see stuttering
-* when the cube and sphere are out of sight you can press the red button to reset their position
-* Especially on iPad Pro we found the stuttering quite fast, but it takes some patience and concentration to find them
+* Run once without hitting the **Tap!** button
+* Run once with hitting the **Tap!** approximately twice a second
+* Calculate the difference between the two outcomes
