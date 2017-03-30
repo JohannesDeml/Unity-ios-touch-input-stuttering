@@ -1,8 +1,8 @@
-# Unity-ios-touch-input-stuttering
-Bug report for frame jumps and frame freezes on ios with simple touch input
+# iOS touch input stuttering
+Noticable frame jumps and frame freezes on ios with simple touch input
 
-* [Introduction Video](https://youtu.be/2lu996QHSpE)
 * [Recordings 240 FPS](https://youtu.be/O4JOB5Gsa6I)
+* [Introduction Video](https://youtu.be/2lu996QHSpE)
 * [Raw video data](https://drive.google.com/drive/folders/0ByTO3RP9DQI0bjl5WklWbVJrZkU?usp=sharing)
 
 ## Project information
@@ -16,11 +16,12 @@ Bug report for frame jumps and frame freezes on ios with simple touch input
 * Most significant problems on iPad Pro
 * On GLES3 the problem seems to be less frequent than on Metal
 
-### Test Scenarios
-* Tested with Unity 5.5.1p1 and 5.6.0f2
-* Tested with XCode 8.2.1, 8.3 beta 2 and 8.3 (8E162)
-* Tested with OpenGLES2, OpenGLES3 and Metal graphics API
-* Tested with il2CPP
+### Test Scenario
+* Unity 5.6.0f2
+* XCode 8.3 (8E162)
+* OpenGLES2, OpenGLES3 and Metal graphics API
+* il2CPP
+* Gamma color space
 
 ### Results
 
@@ -41,11 +42,17 @@ Bug report for frame jumps and frame freezes on ios with simple touch input
 | 2 | Noticable stuttering       |
 | 3 | Frequent stuttering        |
 
+### Additional Tests
+* Tested with Unity 5.5.1p1
+* Tested with XCode 8.2.1, 8.3 beta 2
+
 ## How to reproduce?
 
 * Clone the project
-* set Build Target to iOS, rlease and not development build
+* set Build Target to iOS and release, disable development build
+* Build & Run Project
 * Install the app
-* Hit the do nothing key until you see stuttering
+* Detach the device from the computer
+* Hit the **Do nothing** key until you see stuttering
 * when the cube and sphere are out of sight you can press the red button to reset their position
 * Especially on iPad Pro we found the stuttering quite fast, but it takes some patience and concentration to find them
