@@ -1374,7 +1374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExpectedFramesPerSecond: 60
-  RecordTimeSeconds: 10
+  RecordTimeSeconds: 60
   counterText: {fileID: 988268750}
   resultText: {fileID: 1256077502}
   conterInfo: {fileID: 1924868523}
