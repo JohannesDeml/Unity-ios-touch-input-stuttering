@@ -25,7 +25,16 @@ Noticable frame jumps and frame freezes on ios with simple touch input
 
 ![Screenshot v0.2](https://i.imgur.com/f50pAdR.png)
 
-### Results (V 0.1)
+### Results (v0.2)
+
+(Without Tapping / With Tapping)
+
+|           | Metal+Xcode      | Metal           |
+|-----------|------------------|-----------------|
+| iPad Pro  | (0.472 / 6.850)  | (1.519 / 3.997) |
+| iPhone SE | (0.223 / 0.8135) | (0.234 / 0.800) |
+
+### Results (v0.1)
 
 |    Model       | OpenGLES2 | OpenGLES3 | Metal |
 |----------------|-----------|-----------|-------|
