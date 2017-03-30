@@ -29,6 +29,7 @@ namespace Supyrb
 		private bool startRecording = false;
 		private int startFrameCount = -1;
 		private float startTime = -1f;
+		private float exactDifference = 0f;
 		private int frameDifference = 0;
 		private int buttonInputCounter = 0;
 
@@ -44,11 +45,11 @@ namespace Supyrb
 			{
 				return;
 			}
-			var newDifference = CalculateFrameDifference();
-
-			if (newDifference != frameDifference)
+			exactDifference = CalculateFrameDifference();
+			var roundedDifference = Mathf.RoundToInt(exactDifference);
+			if (roundedDifference != frameDifference)
 			{
-				frameDifference = newDifference;
+				frameDifference = roundedDifference;
 				UpdateCounterText();
 			}
 
@@ -75,15 +76,16 @@ namespace Supyrb
 			startFrameCount = Time.frameCount;
 			startTime = Time.realtimeSinceStartup;
 			frameDifference = 0;
+			exactDifference = 0f;
 			buttonInputCounter = 0;
 			resultText.text = "";
 			conterInfo.SetActive(false);
 			UpdateCounterText();
 		}
 
-		private int CalculateFrameDifference()
+		private float CalculateFrameDifference()
 		{
-			var expectedPassedFrames = Mathf.RoundToInt((Time.realtimeSinceStartup - startTime)* ExpectedFramesPerSecond);
+			var expectedPassedFrames = (Time.realtimeSinceStartup - startTime)* ExpectedFramesPerSecond;
 			var passedFrames = Time.frameCount - startFrameCount;
 			return expectedPassedFrames - passedFrames;
 		}
@@ -98,8 +100,9 @@ namespace Supyrb
 			counterText.text = "-";
 			resultText.text = String.Format("Result\n " +
 			                                "Frame difference: {0}\n" +
-											"Seconds: {1}\n" +
-											"Button inputs: {2}", frameDifference, RecordTimeSeconds, buttonInputCounter);
+											"Duration: {1} seconds\n" +
+											"Inputs: {2} touches", 
+											exactDifference.ToString("0.000"), RecordTimeSeconds, buttonInputCounter);
 			active = false;
 			conterInfo.SetActive(true);
 		}
