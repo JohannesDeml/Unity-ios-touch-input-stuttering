@@ -17,7 +17,11 @@ namespace Supyrb
     {
         [SerializeField] private Space space = Space.Self;
         [SerializeField, Tooltip("per second")] private Vector3 movementVector = Vector3.zero;
+	    [SerializeField] private float jumpBackToStartTime;
+
+	    private float lastJumpTime;
 		private Vector3 startPosition;
+
 
 		void Start()
 		{
@@ -29,11 +33,17 @@ namespace Supyrb
 			{
 				startPosition = transform.position;
 			}
+			lastJumpTime = Time.time;
 		}
 
 		void Update()
 		{
-            transform.Translate(movementVector* Time.smoothDeltaTime, space);
+			if (Time.time - lastJumpTime > jumpBackToStartTime)
+			{
+				ResetToStartPosition();
+				return;
+			}
+			transform.Translate(movementVector* Time.smoothDeltaTime, space);
 		}
 
 		public void ResetToStartPosition()
@@ -46,6 +56,7 @@ namespace Supyrb
 			{
 				transform.position = startPosition;
 			}
+			lastJumpTime = Time.time;
 		}
     }
 }

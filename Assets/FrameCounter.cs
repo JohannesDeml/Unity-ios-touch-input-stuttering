@@ -8,6 +8,7 @@
 // </author>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
 using UnityEngine.UI;
 
 namespace Supyrb
@@ -18,12 +19,18 @@ namespace Supyrb
 
 	public class FrameCounter : MonoBehaviour
 	{
-		[SerializeField] private Text uiText;
-		private bool active;
-		private bool startRecording;
-		private int startFrameCount;
-		private float startTime;
-		private int frameDifference;
+		public int ExpectedFramesPerSecond = 60;
+		public int RecordTimeSeconds = 60;
+		[SerializeField] private Text counterText = null;
+		[SerializeField] private Text resultText = null;
+		[SerializeField] private GameObject conterInfo = null;
+
+		private bool active = false;
+		private bool startRecording = false;
+		private int startFrameCount = -1;
+		private float startTime = -1f;
+		private int frameDifference = 0;
+		private int buttonInputCounter = 0;
 
 		void Update()
 		{
@@ -38,17 +45,27 @@ namespace Supyrb
 				return;
 			}
 			var newDifference = CalculateFrameDifference();
-			if (newDifference == frameDifference)
+
+			if (newDifference != frameDifference)
 			{
-				return;
+				frameDifference = newDifference;
+				UpdateCounterText();
 			}
-			frameDifference = newDifference;
-			UpdateText();
+
+			if (Time.realtimeSinceStartup - startTime >= RecordTimeSeconds)
+			{
+				FinishRecording();
+			}
 		}
 
 		public void TriggerStartRecording()
 		{
 			startRecording = true;
+		}
+
+		public void IncrementButtonInputCounter()
+		{
+			buttonInputCounter++;
 		}
 
 		private void StartRecording()
@@ -58,30 +75,33 @@ namespace Supyrb
 			startFrameCount = Time.frameCount;
 			startTime = Time.realtimeSinceStartup;
 			frameDifference = 0;
-			UpdateText();
+			buttonInputCounter = 0;
+			resultText.text = "";
+			conterInfo.SetActive(false);
+			UpdateCounterText();
 		}
 
 		private int CalculateFrameDifference()
 		{
-			var expectedPassedFrames = Mathf.RoundToInt((Time.realtimeSinceStartup - startTime)*60f);
+			var expectedPassedFrames = Mathf.RoundToInt((Time.realtimeSinceStartup - startTime)* ExpectedFramesPerSecond);
 			var passedFrames = Time.frameCount - startFrameCount;
 			return expectedPassedFrames - passedFrames;
 		}
 
-		private void UpdateText()
+		private void UpdateCounterText()
 		{
-			uiText.text = frameDifference.ToString();
+			counterText.text = frameDifference.ToString();
 		}
 
-		
-#if UNITY_EDITOR
-		void Reset()
+		private void FinishRecording()
 		{
-			if (uiText == null)
-			{
-				uiText = GetComponent<Text>();
-			}
+			counterText.text = "-";
+			resultText.text = String.Format("Result\n " +
+			                                "Frame difference: {0}\n" +
+											"Seconds: {1}\n" +
+											"Button inputs: {2}", frameDifference, RecordTimeSeconds, buttonInputCounter);
+			active = false;
+			conterInfo.SetActive(true);
 		}
-#endif
 	}
 }
