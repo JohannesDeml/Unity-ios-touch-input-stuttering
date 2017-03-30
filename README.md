@@ -24,13 +24,6 @@ Bug report for frame jumps and frame freezes on ios with simple touch input
 
 ### Results
 
-|   |  Numbermapping             |
-|---|----------------------------|
-| 0 | No stuttering              |
-| 1 | Very occasional stuttering |
-| 2 | Noticable stuttering       |
-| 3 | Frequent stuttering        |
-
 |    Model       | OpenGLES2 | OpenGLES3 | Metal |
 |----------------|-----------|-----------|-------|
 | iPad Pro       | 2         | 2         | 3     |
@@ -40,6 +33,13 @@ Bug report for frame jumps and frame freezes on ios with simple touch input
 | Nexus 5        |           | 0         |       |
 | OnePlus One    |           | 0         |       |
 
+
+|   |  Numbermapping             |
+|---|----------------------------|
+| 0 | No stuttering              |
+| 1 | Very occasional stuttering |
+| 2 | Noticable stuttering       |
+| 3 | Frequent stuttering        |
 
 ## How to reproduce?
 
