@@ -15,14 +15,23 @@ Bug report for frame jumps and frame freezes on ios with simple touch input
 * Frame Jumps (leaving out one frame) seems to be more common than frame freezes (in Unity 5.6 at least)
 * Most significant problems on iPad Pro
 
-### Versions
+### Test Scenarios
 * Tested with Unity 5.5.1p1 and 5.6.0f2
 * Tested with XCode 8.2.1, 8.3 beta 2 and 8.3 (8E162)
+* Tested with OpenGLES2, OpenGLES3 and Metal graphics API
+* Tested with il2CPP
 
 ### Tested Devices
+
+#### With stuttering
 * iPad Pro
 * iPhone 6s
 * iPhone SE
+
+#### Without stuttering
+* iPhone 6s Plus
+* Nexus 5
+* OnePlus One
 
 
 ## How to reproduce?
