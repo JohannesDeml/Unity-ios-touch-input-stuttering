@@ -22,17 +22,23 @@ Bug report for frame jumps and frame freezes on ios with simple touch input
 * Tested with OpenGLES2, OpenGLES3 and Metal graphics API
 * Tested with il2CPP
 
-### Tested Devices
+### Results
 
-#### With stuttering
-* iPad Pro
-* iPhone 6s
-* iPhone SE
+|   |  Numbermapping             |
+|---|----------------------------|
+| 0 | No stuttering              |
+| 1 | Very occasional stuttering |
+| 2 | Noticable stuttering       |
+| 3 | Frequent stuttering        |
 
-#### Without stuttering
-* iPhone 6s Plus
-* Nexus 5
-* OnePlus One
+|    Model       | OpenGLES2 | OpenGLES3 | Metal |
+|----------------|-----------|-----------|-------|
+| iPad Pro       | 2         | 2         | 3     |
+| iPhone SE      |           | 0         | 2     |
+| iPhone 6s      |           | 1         | 2     |
+| iPhone 6s Plus |           | 0         | 0     |
+| Nexus 5        |           | 0         |       |
+| OnePlus One    |           | 0         |       |
 
 
 ## How to reproduce?
