@@ -29,29 +29,11 @@ Noticable frame jumps and frame freezes on ios with simple touch input
 
 Lost frames - (Without Tapping / With Tapping)
 
-|           | Metal+Xcode      | Metal           |
-|-----------|------------------|-----------------|
-| iPad Pro  | (0.472 / 6.850)  | (1.519 / 3.997) |
-| iPhone SE | (0.223 / 0.8135) | (0.234 / 0.800) |
-
-### Results (v0.1)
-
-|    Model       | OpenGLES2 | OpenGLES3 | Metal |
-|----------------|-----------|-----------|-------|
-| iPad Pro       | 2         | 2         | 3     |
-| iPhone SE      |           | 0         | 2     |
-| iPhone 6s      |           | 1         | 2     |
-| iPhone 6s Plus |           | 0         | 0     |
-| Nexus 5        |           | 0         |       |
-| OnePlus One    |           | 0         |       |
-
-
-|   |  Numbermapping             |
-|---|----------------------------|
-| 0 | No stuttering              |
-| 1 | Very occasional stuttering |
-| 2 | Noticable stuttering       |
-| 3 | Frequent stuttering        |
+|                | Metal+Xcode      | Metal           |
+|----------------|------------------|-----------------|
+| iPad Pro       | (0.472 / 6.850)  | (1.519 / 3.997) |
+| iPhone SE      | (0.223 / 0.8135) | (0.234 / 0.800) |
+| iPhone 6s Plus | (0.403 / 1.943)  | (0.465 / 1.053) |
 
 ### Additional Tests
 * Tested with Unity 5.5.1p1
