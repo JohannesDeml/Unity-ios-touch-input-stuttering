@@ -1,4 +1,14 @@
-﻿namespace Supyrb
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ConstantMovementRigidBody.cs" company="Supyrb">
+//   Copyright (c) 2017 Supyrb. All rights reserved.
+// </copyright>
+// <author>
+//   Johannes Deml
+//   send@johannesdeml.com
+// </author>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace Supyrb
 {
 	using UnityEngine;
 	using System.Collections;
