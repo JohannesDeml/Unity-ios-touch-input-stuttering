@@ -27,7 +27,7 @@ Noticable frame jumps and frame freezes on ios with simple touch input
 
 ### Results (v0.2)
 
-(Without Tapping / With Tapping)
+Lost frames - (Without Tapping / With Tapping)
 
 |           | Metal+Xcode      | Metal           |
 |-----------|------------------|-----------------|
